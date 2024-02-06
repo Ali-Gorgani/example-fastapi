@@ -87,6 +87,3 @@ def test_posts(test_user, session, test_user_2):
     session.commit()
     posts = session.query(models.Post).order_by(models.Post.id).all()
     return posts
-
-
-
