@@ -45,3 +45,5 @@ ujson==5.9.0
 uvicorn==0.26.0
 watchfiles==0.21.0
 websockets==12.0
+
+pytest~=8.0.0

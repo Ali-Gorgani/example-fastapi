@@ -15,7 +15,7 @@ class UserOut(BaseModel):
     created_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class PostBase(BaseModel):
@@ -35,7 +35,7 @@ class Post(PostBase):
     owner: UserOut
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class PostOut(BaseModel):
@@ -43,7 +43,7 @@ class PostOut(BaseModel):
     votes: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class Token(BaseModel):
@@ -52,7 +52,7 @@ class Token(BaseModel):
 
 
 class TokenData(BaseModel):
-    id: Optional[str] = None
+    id: Optional[int] = None
 
 
 class Vote(BaseModel):

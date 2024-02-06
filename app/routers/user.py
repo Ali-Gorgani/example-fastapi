@@ -63,6 +63,8 @@ def update_user(id: int, updated_user: schemas.UserCreate, db: Session = Depends
     if not user:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f"user with id: {id} was not found")
+    hashed_password = utils.hash_pass(updated_user.password)
+    updated_user.password = hashed_password
     user_query.update(updated_user.model_dump(), synchronize_session=False)
     db.commit()
     db.refresh(user)
